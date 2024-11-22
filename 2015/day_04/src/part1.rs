@@ -2,7 +2,7 @@ pub fn solve_part1(secret_key: &str) -> usize {
     (1..)
         .filter_map(|n| {
             let digest = md5::compute(format!("{secret_key}{n}"));
-            format!("{digest:?}").starts_with("00000").then(|| n)
+            format!("{digest:?}").starts_with(&"0".repeat(5)).then(|| n)
         })
         .next()
         .expect("should have at least one element")
