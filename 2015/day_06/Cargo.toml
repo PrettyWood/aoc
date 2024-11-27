@@ -1,0 +1,10 @@
+[package]
+name = "day_06"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+chumsky = "0.9.3"
+
+[dev-dependencies]
+rstest = "0.23.0"
