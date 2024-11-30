@@ -13,12 +13,20 @@ pub fn solve_part2(input: &str) -> usize {
 
     let mut grid = [[0_usize; 1000]; 1000];
     for instruction in &instructions {
-        for i in (instruction.from.0)..=(instruction.to.0) {
-            for j in (instruction.from.1)..=(instruction.to.1) {
-                grid[i][j] = match instruction.command {
-                    Command::TurnOn => grid[i][j] + 1,
-                    Command::TurnOff => grid[i][j].saturating_sub(1),
-                    Command::Toggle => grid[i][j] + 2,
+        for row in grid
+            .iter_mut()
+            .skip(instruction.from.0)
+            .take(instruction.to.0 - instruction.from.0 + 1)
+        {
+            for cell in row
+                .iter_mut()
+                .skip(instruction.from.1)
+                .take(instruction.to.1 - instruction.from.1 + 1)
+            {
+                *cell = match instruction.command {
+                    Command::TurnOn => *cell + 1,
+                    Command::TurnOff => (*cell).saturating_sub(1),
+                    Command::Toggle => *cell + 2,
                 };
             }
         }
