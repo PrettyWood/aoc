@@ -10,7 +10,7 @@ mod tests {
 
     #[rstest]
     #[case("", "")]
-    fn test_part_2(#[case] input: &str, #[case] expected: &str) {
+    fn test_solve_part2(#[case] input: &str, #[case] expected: &str) {
         assert_eq!(input, expected);
     }
 }
