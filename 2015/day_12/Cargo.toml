@@ -1,0 +1,10 @@
+[package]
+name = "day_12"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde_json = "1.0.133"
+
+[dev-dependencies]
+rstest = "0.23.0"
